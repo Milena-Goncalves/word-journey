@@ -3,33 +3,52 @@
 @{
 }
 
-<h2> @Html.DisplayFor(model => model.livro.titulo)</h2>
+
+<div class="centro">
+    <div class="principal-detalhes">
+
+        <h2><i class="bi bi-book-half"></i>  @Html.DisplayFor(model => model.livro.titulo)</h2>
+
+        <dl class="dl-horizontal">
 
 
-<div>
-    <h4>Livro</h4>
-    <hr />
+            <div class="d-flex p_ori">
+                <p class="ref-detalhes"><strong>Autor/Autora: </strong> </p>
+                @Html.DisplayFor(model => model.livro.autor)
+
+            </div>
+            <dd>
 
 
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayFor(model => model.livro.titulo)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.livro.autor)
-        </dd>
-        <dd>
-            @Html.DisplayFor(model => model.livro.editora)
-        </dd>
-        <dd>
-            @Html.DisplayFor(model => model.livro.genero)
-        </dd>
-        <dd>
-            @Html.DisplayFor(model => model.livro.sinopse)
-        </dd>
+            </dd>
+            <dd>
+            </dd>
 
-    </dl>
+            <div class="d-flex p_ori">
+                <p class="ref-detalhes"><strong>Editora brasileira: </strong> </p>
+                @Html.DisplayFor(model => model.livro.editora)
+            </div>
+
+                <dd>
+                </dd>
+                <div class="d-flex p_ori">
+                    <p class="ref-detalhes"><strong>Género: </strong> </p>
+                    @Html.DisplayFor(model => model.livro.genero)
+                </div>
+
+
+
+                <dd>
+                    <p class="ref-detalhes"><strong>Sinopse:</strong></p>
+                    @Html.DisplayFor(model => model.livro.sinopse)
+                </dd>
+
+        </dl>
+
+        <a asp-area="" asp-page="/CreateComentario" asp-route-titulo="@Model.livro.titulo" class="criar-comen">Comentar</a>
+    </div>
 </div>
 
-<a asp-area="" asp-page="/CreateComentario" asp-route-titulo="@Model.livro.titulo" class="btn-get-started">Navegue por todos os géneros</a>
+
+
 

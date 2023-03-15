@@ -4,24 +4,25 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using MySqlX.XDevAPI;
 using projecto_iefp.Models;
 
 namespace projecto_iefp.Pages
 {
-    public class CreateComentarioModel : PageModel
+	public class CreateComentarioModel : PageModel
     {
-        [BindProperty(SupportsGet = true)]
+        [BindProperty(Name = "titulo", SupportsGet = true)]
         public string Titulo { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string searchTerm { get; set; }
 
         public List<string> Titulos { get; set; }
 
-
         public IActionResult OnGet()
         {
-                       
-                Titulo = Titulo;
-           
+
+            Titulo = Titulo;
+
 
             return Page();
         }
@@ -41,13 +42,5 @@ namespace projecto_iefp.Pages
             OnGet();
         }
 
-        
     }
 }
-
-/*public void OnGet()
-{
-    livrosContext context = new livrosContext();
-    Titulos = context.GetAllTitulos();
-
-}*/

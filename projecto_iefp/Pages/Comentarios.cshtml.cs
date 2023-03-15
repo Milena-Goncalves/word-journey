@@ -12,13 +12,14 @@ namespace projecto_iefp.Pages
     public class ComentariosModel : PageModel
     {
         public IEnumerable<Models.Comentario> comentario { get; set; }
-
+        public IEnumerable<string> titulo { get; set; }
         
 
         public void OnGet()
         {
             livrosContext context = new livrosContext();
             comentario = context.GetAllComentarios();
+            titulo = context.GetAllTitulos();
 
         }
 

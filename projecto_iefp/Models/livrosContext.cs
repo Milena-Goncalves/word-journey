@@ -184,7 +184,7 @@ public class livrosContext
                         email = reader.GetString("email"),
                         comentario = reader.GetString("comentario")
                     });
-                    // Console.WriteLine(reader.GetString("Sigla_Hotel"));
+                    
                 }
             }
         }

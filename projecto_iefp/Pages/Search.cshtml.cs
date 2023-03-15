@@ -13,18 +13,16 @@ namespace projecto_iefp.Pages
     public class FiltroModel : PageModel
     {
         public IEnumerable<Models.Comentario> comentario { get; set; }
-        public IEnumerable<Models.livro> livro { get; set; }
+        public string searchTerm { get; set; }
+        public IEnumerable<string> titulo { get; set; }
 
         public void OnGet(string searchTerm)
         {
             livrosContext context = new livrosContext();
             comentario = context.searchComentario(searchTerm);
-            livro = context.GetAllLivros();
-            
+            titulo = context.GetAllTitulos();
         }
-
-
     }
 
-   
+
 }

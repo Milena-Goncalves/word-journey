@@ -3,42 +3,37 @@
 @{
 }
 
+
 <div class="row justify-content-center">
     <div class="col-lg-6 text-center" style="width: 80%;">
-        <h2 value="@Model.Titulo" name="@Model.Titulo" id="@Model.Titulo">Comente @Model.Titulo</h2>
+        <h2>Comente "@Model.Titulo" relacionado à busca "@Model.searchTerm"</h2>
     </div>
 </div>
 
-
-
-<div class="d-flex justify-content-center align-items-center">
-
+<div class="d-flex justify-content-center align-items-center" style="margin: 10%;">
     <form method="POST" style="width: 30vw;">
+        <div class="form-group m-3">
+            <label class="ref-detalhes" for="nome">Comentando no livro:</label>
+            <input type="text" class="form-control" name="titulo" id="titulo" placeholder="@Model.Titulo" disabled />
+        </div>
 
         <div class="form-group m-3">
-            <label for="nome">Titulo do livro</label>
-            <input type="text" class="form-control" name="titulo" id="titulo" placeholder="@Model.Titulo" disabled/>
+            <label class="ref-detalhes" for="nome">Insira seu nome</label>
+            <input required type="text" class="form-control" name="nome" id="nome" placeholder="Insira seu nome" />
         </div>
 
         <div class="form-group m-3">
-            <label for="nome">Seu nome</label>
-            <input type="text" class="form-control" name="nome" id="nome" placeholder="Insira seu nome" />
+            <label class="ref-detalhes" for="email">E-mail </label>
+            <input required type="email" class="form-control" id="email" name="email" placeholder="Insira o número do cliente" />
         </div>
+
         <div class="form-group m-3">
-            <label for="email">email </label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Insira o número do cliente" />
-        </div>
-        <div class="form-group m-3">
-            <label for="comentario">Comentário </label>
-            <input type="text" class="form-control" id="comentario" name="comentario" placeholder="Insira seu comentário sobre o livro" />
-        </div>
-        <div class="d-flex justify-content-center m-3">
-            <a asp-page="/Comentarios"><input class="btn btn-primary" type="submit" value="Criar" /></a>
+            <label class="ref-detalhes" for="comentario">Comentário </label>
+            <textarea required class="form-control" id="comentario" name="comentario" placeholder="Insira seu comentário sobre o livro" rows="5"></textarea>
         </div>
 
-
-
+        <div class="d-flex justify-content-center">
+           <a href="/Comentarios"><input class="criar-comen" style="border: 2px;" type="submit" value="Criar" /></a> 
+        </div>
     </form>
 </div>
-
-

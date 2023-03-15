@@ -5,17 +5,44 @@
 @{
 }
 
+<div class="container my-5 py-2">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-12 col-lg-10 col-xl-8">
+            <div class="search-div">
+                <form method="get" action="/Search">
+                    <select class="form-select" aria-label="Default select example" name="searchTerm" id="titulo">
+                        <option selected>Filtre comentários por título</option>
+                        @foreach (var titulo in Model.titulo)
+                        {
+                            <option value="@titulo">@titulo</option>
+                        }
+                    </select>
+                    <button type="submit" name="commentButton">Pesquisar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
+<div class="d-flex justify-content-center align-items-center">
+    @if (Model.comentario.Any())
+    {
+        <h1>Comentários @Html.DisplayFor(modelItem => Model.comentario.First().titulo)</h1>
+        }
+        else
+        {
+            string selectedTitulo = Request.Query["searchTerm"];
+        <div class="no-comen">
+            <h1>Ainda não há comentários sobre este livro!</h1>
+            <h5>Faça o primeiro comentário.</h5>
 
-@if (Model.comentario.Any())
-{
-    <h1>Comentários do livro @Html.DisplayFor(modelItem => Model.comentario.First().titulo)</h1>
-}
-else
-{
-    <h1>No comments found</h1>
-}
+            <a asp-area="" asp-page="/CreateComentario" asp-route-titulo="@selectedTitulo" class="criar-comen">Comentar</a>
+        </div>
+        
+        
+    }
 
+</div>
 
 @foreach (var comentario in Model.comentario)
 {
