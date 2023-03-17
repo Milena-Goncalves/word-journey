@@ -192,4 +192,28 @@ public class livrosContext
         return comentariosList;
     }
 
+    public void createSugestao(pedido pedidos)
+    {
+
+        using (MySqlConnection conn = GetConnection())
+        {
+            //Abrir a ligação
+            conn.Open();
+
+            //Query
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO pedido (livro,genero,nome,email) VALUES (@livro,@genero,@nome,@email);", conn);
+
+
+            cmd.Parameters.AddWithValue("livro", pedidos.livro);
+            cmd.Parameters.AddWithValue("genero", pedidos.genero);
+            cmd.Parameters.AddWithValue("nome", pedidos.nome);
+            cmd.Parameters.AddWithValue("email", pedidos.email);
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+
+        }
+    }
+
 }

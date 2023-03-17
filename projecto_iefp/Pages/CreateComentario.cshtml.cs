@@ -24,7 +24,7 @@ namespace projecto_iefp.Pages
             Titulo = Titulo;
 
 
-            return Page();
+            return RedirectToPage("Comentarios");
         }
 
         public void OnPost()
